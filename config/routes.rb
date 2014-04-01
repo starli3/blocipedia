@@ -1,6 +1,6 @@
 Blocipedia::Application.routes.draw do
   
-  resources :wiki
+  resources :wikis
 
   devise_for :users
 
