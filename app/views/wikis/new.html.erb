@@ -1,9 +1,30 @@
-<%= form_for @wiki do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<h1>New Wiki</h1>
 
-  <%= f.label :body %>
-  <%= f.text_area :body %>
-
-  <%= f.submit "Save" %>
-<% end %>
+<div class="row">
+  <div class="col-md-4">
+    <p>Guidelines for wikis:</p>
+    <ul>
+      <li>Make sure the wiki is appropriate.</li>
+      <li>Inappropriate wiki posts will be deleted.</li>
+      <li>Correct changes are appreciated.</li>
+    </ul>
+  </div>
+  <div class="col-md-8">
+    <%= form_for @wiki do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', placeholder: "Enter wiki name" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter wiki description" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :public, class: 'checkbox' do %>
+          <%= f.check_box :public %> Public wiki
+        <% end %>
+      </div>
+      <%= f.submit "Save", class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>
